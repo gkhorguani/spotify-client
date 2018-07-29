@@ -24,7 +24,7 @@
                                     <constraint firstAttribute="width" constant="240" id="fFC-tt-q1F"/>
                                 </constraints>
                                 <connections>
-                                    <segue destination="zbC-KS-17m" kind="embed" id="8Pi-hX-yiO"/>
+                                    <segue destination="zbC-KS-17m" kind="embed" identifier="menuSegue" id="8Pi-hX-yiO"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MNS-zb-dgA">
@@ -61,6 +61,16 @@
                     <view key="view" contentMode="scaleToFill" id="7DN-mf-2Ia">
                         <rect key="frame" x="0.0" y="0.0" width="240" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3V6-ox-jiw">
+                                <rect key="frame" x="97" y="308" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="goToPlaylists" destination="zbC-KS-17m" eventType="touchUpInside" id="Uw1-z1-TYL"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                 </viewController>

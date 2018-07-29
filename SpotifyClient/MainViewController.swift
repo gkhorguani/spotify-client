@@ -10,6 +10,7 @@ import UIKit
 
 class MainViewController: UIViewController {
     var isOpen = false
+    var navigationStack: UINavigationController?
     @IBOutlet weak var menuLeftConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
@@ -19,6 +20,11 @@ class MainViewController: UIViewController {
     func showSideMenu() {
         menuLeftConstraint.constant = isOpen ? -240 : 0
         isOpen = !isOpen
+    }
+    
+    func hideSideMenu() {
+        menuLeftConstraint.constant = -240
+        isOpen = false
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -31,6 +37,8 @@ class MainViewController: UIViewController {
             if targetController is SideMenuable {
                 var targetCasted = targetController as! SideMenuable
                 targetCasted.sideMenuDelegate = self
+                
+                navigationStack = targetCasted.getNavigationStack()
             }
         }
     }
@@ -38,6 +46,10 @@ class MainViewController: UIViewController {
 }
 
 extension MainViewController: SideMenuViewDelegate {
+    func getNavigationStack() -> UINavigationController? {
+        return navigationStack
+    }
+    
     func toggleSideMenu() {
         showSideMenu()
     }

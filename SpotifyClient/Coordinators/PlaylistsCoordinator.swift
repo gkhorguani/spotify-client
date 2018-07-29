@@ -9,16 +9,16 @@
 import UIKit
 
 class PlaylistsCoordinator: Coordinator {
-    let navigationControoler: UINavigationController?
+    let navigationController: UINavigationController?
     
     init(_ navController: UINavigationController?) {
-        self.navigationControoler = navController
+        self.navigationController = navController
     }
     
     func start(_ router: Router<String>?) {
         // ...
         let playlistsVC = PlaylistsViewController()
         
-        self.navigationControoler?.pushViewController(playlistsVC, animated: false)
+        self.navigationController?.pushViewController(playlistsVC, animated: false)
     }
 }

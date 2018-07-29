@@ -13,10 +13,10 @@ protocol HomeCoordinatorViewDelegate {
 }
 
 class HomeCoordinator: Coordinator {
-    let navigationControoler: UINavigationController?
+    let navigationController: UINavigationController?
     
     init(_ navController: UINavigationController?) {
-        self.navigationControoler = navController
+        self.navigationController = navController
     }
     
     func start(_ router: Router<String>?) {
@@ -26,7 +26,7 @@ class HomeCoordinator: Coordinator {
 
 extension HomeCoordinator: HomeCoordinatorViewDelegate {
     func showPlaylist(playlistId: String) {
-        let playlistsCoordinator = PlaylistsCoordinator(self.navigationControoler)
+        let playlistsCoordinator = PlaylistsCoordinator(self.navigationController)
         let router = Router<String>()
         router.setParmeters(playlistId)
         
