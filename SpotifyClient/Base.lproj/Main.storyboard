@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fIZ-N7-ufU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="T1v-u5-KOl">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,39 +10,102 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Home View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Main View Controller-->
+        <scene sceneID="knB-IK-scQ">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="SpotifyClient" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <viewController id="T1v-u5-KOl" customClass="MainViewController" customModule="SpotifyClient" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MBF-Eh-trS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bJl-qq-F1U">
+                                <rect key="frame" x="-240" y="20" width="240" height="647"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="fFC-tt-q1F"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="zbC-KS-17m" kind="embed" id="8Pi-hX-yiO"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MNS-zb-dgA">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <connections>
+                                    <segue destination="hqe-5D-oPc" kind="embed" identifier="appSegue" id="V80-k3-Sfw"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="bJl-qq-F1U" firstAttribute="leading" secondItem="Rq1-v7-cqM" secondAttribute="leading" constant="-240" id="2Ca-Na-aDK"/>
+                            <constraint firstItem="bJl-qq-F1U" firstAttribute="bottom" secondItem="Rq1-v7-cqM" secondAttribute="bottom" id="2P2-eM-Ylz"/>
+                            <constraint firstItem="MNS-zb-dgA" firstAttribute="leading" secondItem="bJl-qq-F1U" secondAttribute="trailing" id="7Wx-hg-kvc"/>
+                            <constraint firstItem="MNS-zb-dgA" firstAttribute="bottom" secondItem="Rq1-v7-cqM" secondAttribute="bottom" id="Jrg-mq-JaZ"/>
+                            <constraint firstItem="MNS-zb-dgA" firstAttribute="top" secondItem="Rq1-v7-cqM" secondAttribute="top" id="ma0-fm-Cet"/>
+                            <constraint firstItem="bJl-qq-F1U" firstAttribute="top" secondItem="Rq1-v7-cqM" secondAttribute="top" id="pJ5-SR-Zvd"/>
+                            <constraint firstAttribute="trailing" secondItem="MNS-zb-dgA" secondAttribute="trailing" id="xOs-24-GA1"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Rq1-v7-cqM"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Phs-aG-d3E"/>
+                    <connections>
+                        <outlet property="menuLeftConstraint" destination="2Ca-Na-aDK" id="gu0-vc-GuB"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="87D-dJ-9mT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="164" y="778"/>
+            <point key="canvasLocation" x="-1618.4000000000001" y="89.505247376311857"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="ep7-hJ-g7U">
+        <!--Menu View Controller-->
+        <scene sceneID="wBI-m7-e58">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fIZ-N7-ufU" sceneMemberID="viewController">
+                <viewController id="zbC-KS-17m" customClass="MenuViewController" customModule="SpotifyClient" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7DN-mf-2Ia">
+                        <rect key="frame" x="0.0" y="0.0" width="240" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HQC-mp-uox" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1726" y="780"/>
+        </scene>
+        <!--Home View Controller-->
+        <scene sceneID="52t-iF-7sK">
+            <objects>
+                <viewController id="L75-OD-BdY" customClass="HomeViewController" customModule="SpotifyClient" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EMK-a1-q02">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.15478190830380156" green="1" blue="0.98844510200444735" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="xEG-dY-6JN">
+                        <barButtonItem key="leftBarButtonItem" title="Menu" id="560-po-f2u">
+                            <connections>
+                                <action selector="onMenuTapped" destination="L75-OD-BdY" id="Jw3-Qz-61d"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o58-ZH-TLB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-263.19999999999999" y="778.56071964017997"/>
+        </scene>
+        <!--App View Controller-->
+        <scene sceneID="34b-s4-HxC">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hqe-5D-oPc" customClass="AppViewController" customModule="SpotifyClient" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Pg4-CX-clw">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cRL-44-51Y">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="SHH-Jg-FHv"/>
+                        <segue destination="L75-OD-BdY" kind="relationship" relationship="rootViewController" id="StK-v4-McJ"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DOG-IB-BV4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J4F-D3-c2M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-558" y="778"/>
+            <point key="canvasLocation" x="-1202.4000000000001" y="778.56071964017997"/>
         </scene>
     </scenes>
 </document>

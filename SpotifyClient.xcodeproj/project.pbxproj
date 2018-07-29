@@ -9,6 +9,15 @@
 /* Begin PBXBuildFile section */
 		AC74D5FE19A235957AD84162 /* Pods_SpotifyClientTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5F5A7292DEF9D96CA954485 /* Pods_SpotifyClientTests.framework */; };
 		C73CDA21210D5FD400B6A3F7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73CDA20210D5FD400B6A3F7 /* HomeViewController.swift */; };
+		C73CDA25210D61E000B6A3F7 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73CDA24210D61E000B6A3F7 /* Router.swift */; };
+		C73CDA27210D622B00B6A3F7 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73CDA26210D622A00B6A3F7 /* Coordinator.swift */; };
+		C73CDA29210D625C00B6A3F7 /* PlaylistsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73CDA28210D625C00B6A3F7 /* PlaylistsCoordinator.swift */; };
+		C73CDA2B210D638300B6A3F7 /* PlaylistsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73CDA2A210D638300B6A3F7 /* PlaylistsViewController.swift */; };
+		C73CDA2D210D63F400B6A3F7 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73CDA2C210D63F400B6A3F7 /* HomeCoordinator.swift */; };
+		C73CDA2F210D6F6600B6A3F7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73CDA2E210D6F6600B6A3F7 /* MainViewController.swift */; };
+		C73CDA31210D703C00B6A3F7 /* AppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73CDA30210D703C00B6A3F7 /* AppViewController.swift */; };
+		C73CDA33210D704F00B6A3F7 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73CDA32210D704F00B6A3F7 /* MenuViewController.swift */; };
+		C73CDA35210D7CB000B6A3F7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73CDA34210D7CB000B6A3F7 /* ProfileViewController.swift */; };
 		C76F8F0F210D5A1C002B4756 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76F8F0E210D5A1C002B4756 /* AppDelegate.swift */; };
 		C76F8F14210D5A1C002B4756 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C76F8F12210D5A1C002B4756 /* Main.storyboard */; };
 		C76F8F16210D5A1D002B4756 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C76F8F15210D5A1D002B4756 /* Assets.xcassets */; };
@@ -33,6 +42,15 @@
 		956364883642BDE818C49FCC /* Pods-SpotifyClientTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpotifyClientTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpotifyClientTests/Pods-SpotifyClientTests.release.xcconfig"; sourceTree = "<group>"; };
 		BE07C7C109A6291F4800E899 /* Pods-SpotifyClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpotifyClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpotifyClient/Pods-SpotifyClient.release.xcconfig"; sourceTree = "<group>"; };
 		C73CDA20210D5FD400B6A3F7 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		C73CDA24210D61E000B6A3F7 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		C73CDA26210D622A00B6A3F7 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		C73CDA28210D625C00B6A3F7 /* PlaylistsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistsCoordinator.swift; sourceTree = "<group>"; };
+		C73CDA2A210D638300B6A3F7 /* PlaylistsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistsViewController.swift; sourceTree = "<group>"; };
+		C73CDA2C210D63F400B6A3F7 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
+		C73CDA2E210D6F6600B6A3F7 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		C73CDA30210D703C00B6A3F7 /* AppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewController.swift; sourceTree = "<group>"; };
+		C73CDA32210D704F00B6A3F7 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		C73CDA34210D7CB000B6A3F7 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		C76F8F0B210D5A1C002B4756 /* SpotifyClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpotifyClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C76F8F0E210D5A1C002B4756 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C76F8F13210D5A1C002B4756 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -86,6 +104,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C73CDA23210D61CB00B6A3F7 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				C73CDA24210D61E000B6A3F7 /* Router.swift */,
+				C73CDA26210D622A00B6A3F7 /* Coordinator.swift */,
+				C73CDA28210D625C00B6A3F7 /* PlaylistsCoordinator.swift */,
+				C73CDA2C210D63F400B6A3F7 /* HomeCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
 		C76F8F02210D5A1C002B4756 = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +138,7 @@
 		C76F8F0D210D5A1C002B4756 /* SpotifyClient */ = {
 			isa = PBXGroup;
 			children = (
+				C73CDA23210D61CB00B6A3F7 /* Coordinators */,
 				C76F8F30210D5C36002B4756 /* ViewModel */,
 				C76F8F2F210D5C2A002B4756 /* View */,
 				C76F8F2E210D5C24002B4756 /* Model */,
@@ -117,6 +147,9 @@
 				C76F8F15210D5A1D002B4756 /* Assets.xcassets */,
 				C76F8F17210D5A1D002B4756 /* LaunchScreen.storyboard */,
 				C76F8F1A210D5A1D002B4756 /* Info.plist */,
+				C73CDA2E210D6F6600B6A3F7 /* MainViewController.swift */,
+				C73CDA30210D703C00B6A3F7 /* AppViewController.swift */,
+				C73CDA32210D704F00B6A3F7 /* MenuViewController.swift */,
 			);
 			path = SpotifyClient;
 			sourceTree = "<group>";
@@ -141,6 +174,8 @@
 			isa = PBXGroup;
 			children = (
 				C73CDA20210D5FD400B6A3F7 /* HomeViewController.swift */,
+				C73CDA2A210D638300B6A3F7 /* PlaylistsViewController.swift */,
+				C73CDA34210D7CB000B6A3F7 /* ProfileViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -338,8 +373,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C73CDA29210D625C00B6A3F7 /* PlaylistsCoordinator.swift in Sources */,
+				C73CDA33210D704F00B6A3F7 /* MenuViewController.swift in Sources */,
+				C73CDA27210D622B00B6A3F7 /* Coordinator.swift in Sources */,
 				C76F8F0F210D5A1C002B4756 /* AppDelegate.swift in Sources */,
+				C73CDA25210D61E000B6A3F7 /* Router.swift in Sources */,
+				C73CDA2B210D638300B6A3F7 /* PlaylistsViewController.swift in Sources */,
+				C73CDA35210D7CB000B6A3F7 /* ProfileViewController.swift in Sources */,
+				C73CDA2D210D63F400B6A3F7 /* HomeCoordinator.swift in Sources */,
+				C73CDA31210D703C00B6A3F7 /* AppViewController.swift in Sources */,
 				C73CDA21210D5FD400B6A3F7 /* HomeViewController.swift in Sources */,
+				C73CDA2F210D6F6600B6A3F7 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
