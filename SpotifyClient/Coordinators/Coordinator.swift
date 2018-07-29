@@ -16,7 +16,6 @@ protocol Coordinator: class {
 
 protocol SideMenuViewDelegate: class {
     func toggleSideMenu()
-    func getNavigationStack() -> UINavigationController?
 }
 
 protocol SideMenuable {

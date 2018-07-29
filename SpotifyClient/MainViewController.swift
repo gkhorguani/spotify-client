@@ -30,7 +30,7 @@ class MainViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        if(segue.identifier == "appSegue"){
+        if segue.identifier == "appSegue" {
             let destinationNavigationController = segue.destination as! UINavigationController
             let targetController = destinationNavigationController.topViewController
             
@@ -41,16 +41,29 @@ class MainViewController: UIViewController {
                 navigationStack = targetCasted.getNavigationStack()
             }
         }
+        
+        if segue.identifier == "menuSegue" {
+            let targetController = segue.destination
+            if targetController is MenuRoutable {
+                var targetCasted = targetController as! MenuRoutable
+                targetCasted.menuRouteDelegate = self
+            }
+        }
     }
 
 }
 
-extension MainViewController: SideMenuViewDelegate {
-    func getNavigationStack() -> UINavigationController? {
-        return navigationStack
-    }
-    
+extension MainViewController: SideMenuViewDelegate {  
     func toggleSideMenu() {
         showSideMenu()
+    }
+}
+
+extension MainViewController: MenuRouteDelegate {
+    func goToPlaylists() {
+        self.toggleSideMenu()
+        
+        let playlistsCoordinator = PlaylistsCoordinator(self.navigationStack)
+        playlistsCoordinator.start(nil)
     }
 }

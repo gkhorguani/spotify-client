@@ -8,8 +8,9 @@
 
 import UIKit
 
-class MenuViewController: UIViewController {
+class MenuViewController: UIViewController, MenuRoutable {
     weak var sideMenuDelegate: SideMenuViewDelegate?
+    weak var menuRouteDelegate: MenuRouteDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,10 +21,7 @@ class MenuViewController: UIViewController {
     }
     
     @IBAction func goToPlaylists() {
-        sideMenuDelegate?.toggleSideMenu()
-        
-        let playlistsCoordinator = PlaylistsCoordinator(sideMenuDelegate?.getNavigationStack())
-        playlistsCoordinator.start(nil)
+        menuRouteDelegate?.goToPlaylists()
     }
 
 }
