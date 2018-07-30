@@ -85,15 +85,20 @@
                     <view key="view" contentMode="scaleToFill" id="EMK-a1-q02">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.15478190830380156" green="1" blue="0.98844510200444735" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="SiO-6j-eZe"/>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="9jz-Qe-HHR"/>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" id="xEG-dY-6JN">
-                        <barButtonItem key="leftBarButtonItem" title="Menu" id="560-po-f2u">
+                        <barButtonItem key="leftBarButtonItem" image="blue_hamburger" landscapeImage="blue_hamburger" largeContentSizeImage="blue_hamburger" width="24" id="560-po-f2u">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="onMenuTapped" destination="L75-OD-BdY" id="Jw3-Qz-61d"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o58-ZH-TLB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -118,4 +123,7 @@
             <point key="canvasLocation" x="-1202.4000000000001" y="778.56071964017997"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="blue_hamburger" width="24" height="24"/>
+    </resources>
 </document>

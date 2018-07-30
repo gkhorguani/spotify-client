@@ -8,12 +8,17 @@
 
 import UIKit
 
-class HomeViewController: UIViewController, SideMenuable {
+class HomeViewController: UIViewController, LayoutViewController, SideMenuable {
     weak var sideMenuDelegate: SideMenuViewDelegate?
     var homeCoordinator: HomeCoordinator?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
+    }
+    
+    func setupUI() {
+        self.setupLayout()
     }
     
     @IBAction func onMenuTapped() {

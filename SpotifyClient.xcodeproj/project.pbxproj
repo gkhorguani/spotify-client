@@ -19,6 +19,7 @@
 		C73CDA33210D704F00B6A3F7 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73CDA32210D704F00B6A3F7 /* MenuViewController.swift */; };
 		C73CDA35210D7CB000B6A3F7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73CDA34210D7CB000B6A3F7 /* ProfileViewController.swift */; };
 		C73CDA37210E29F400B6A3F7 /* MenuRouteDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73CDA36210E29F400B6A3F7 /* MenuRouteDelegate.swift */; };
+		C73CDA3A210E97B100B6A3F7 /* LayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73CDA39210E97B100B6A3F7 /* LayoutViewController.swift */; };
 		C76F8F0F210D5A1C002B4756 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76F8F0E210D5A1C002B4756 /* AppDelegate.swift */; };
 		C76F8F14210D5A1C002B4756 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C76F8F12210D5A1C002B4756 /* Main.storyboard */; };
 		C76F8F16210D5A1D002B4756 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C76F8F15210D5A1D002B4756 /* Assets.xcassets */; };
@@ -53,6 +54,7 @@
 		C73CDA32210D704F00B6A3F7 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		C73CDA34210D7CB000B6A3F7 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		C73CDA36210E29F400B6A3F7 /* MenuRouteDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuRouteDelegate.swift; sourceTree = "<group>"; };
+		C73CDA39210E97B100B6A3F7 /* LayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutViewController.swift; sourceTree = "<group>"; };
 		C76F8F0B210D5A1C002B4756 /* SpotifyClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpotifyClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C76F8F0E210D5A1C002B4756 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C76F8F13210D5A1C002B4756 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -118,6 +120,14 @@
 			path = Coordinators;
 			sourceTree = "<group>";
 		};
+		C73CDA38210E979C00B6A3F7 /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				C73CDA39210E97B100B6A3F7 /* LayoutViewController.swift */,
+			);
+			path = Layout;
+			sourceTree = "<group>";
+		};
 		C76F8F02210D5A1C002B4756 = {
 			isa = PBXGroup;
 			children = (
@@ -176,6 +186,7 @@
 		C76F8F2F210D5C2A002B4756 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C73CDA38210E979C00B6A3F7 /* Layout */,
 				C73CDA20210D5FD400B6A3F7 /* HomeViewController.swift */,
 				C73CDA2A210D638300B6A3F7 /* PlaylistsViewController.swift */,
 				C73CDA34210D7CB000B6A3F7 /* ProfileViewController.swift */,
@@ -381,6 +392,7 @@
 				C73CDA33210D704F00B6A3F7 /* MenuViewController.swift in Sources */,
 				C73CDA27210D622B00B6A3F7 /* Coordinator.swift in Sources */,
 				C76F8F0F210D5A1C002B4756 /* AppDelegate.swift in Sources */,
+				C73CDA3A210E97B100B6A3F7 /* LayoutViewController.swift in Sources */,
 				C73CDA25210D61E000B6A3F7 /* Router.swift in Sources */,
 				C73CDA2B210D638300B6A3F7 /* PlaylistsViewController.swift in Sources */,
 				C73CDA35210D7CB000B6A3F7 /* ProfileViewController.swift in Sources */,
