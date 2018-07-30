@@ -16,10 +16,6 @@ class MenuViewController: UIViewController, MenuRoutable {
         super.viewDidLoad()
     }
     
-    override func didMove(toParentViewController parent: UIViewController?) {
-        sideMenuDelegate = parent as? SideMenuViewDelegate
-    }
-    
     @IBAction func goToPlaylists() {
         menuRouteDelegate?.goToPlaylists()
     }
