@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="T1v-u5-KOl">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="a7M-8t-OHu">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bJl-qq-F1U">
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bJl-qq-F1U" userLabel="Side Menu View">
                                 <rect key="frame" x="-240" y="20" width="240" height="647"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="fFC-tt-q1F"/>
@@ -27,7 +27,7 @@
                                     <segue destination="zbC-KS-17m" kind="embed" identifier="menuSegue" id="8Pi-hX-yiO"/>
                                 </connections>
                             </containerView>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MNS-zb-dgA">
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MNS-zb-dgA" userLabel="Main View">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <connections>
                                     <segue destination="hqe-5D-oPc" kind="embed" identifier="appSegue" id="V80-k3-Sfw"/>
@@ -54,6 +54,35 @@
             </objects>
             <point key="canvasLocation" x="-1618.4000000000001" y="89.505247376311857"/>
         </scene>
+        <!--Sign In View Controller-->
+        <scene sceneID="CRf-RC-F6F">
+            <objects>
+                <viewController id="a7M-8t-OHu" customClass="SignInViewController" customModule="SpotifyClient" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Xcz-dR-J8c">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UlP-IU-IjE">
+                                <rect key="frame" x="164" y="318" width="47" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Sign In"/>
+                                <connections>
+                                    <action selector="signInTapped:" destination="a7M-8t-OHu" eventType="touchUpInside" id="PYu-8g-iEa"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="g4a-3w-qqd"/>
+                    </view>
+                    <connections>
+                        <outlet property="singInButton" destination="UlP-IU-IjE" id="OFI-fp-ks8"/>
+                        <segue destination="T1v-u5-KOl" kind="show" identifier="showMainScene" id="8hM-NF-B5d"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fsg-py-Nnt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3204" y="551"/>
+        </scene>
         <!--Menu View Controller-->
         <scene sceneID="wBI-m7-e58">
             <objects>
@@ -72,6 +101,7 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="fcz-BV-AZb"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HQC-mp-uox" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -85,15 +115,21 @@
                     <view key="view" contentMode="scaleToFill" id="EMK-a1-q02">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.15478190830380156" green="1" blue="0.98844510200444735" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="Ip3-I1-1Ab"/>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="SiO-6j-eZe"/>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="9jz-Qe-HHR"/>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" id="xEG-dY-6JN">
-                        <barButtonItem key="leftBarButtonItem" title="Menu" id="560-po-f2u">
+                        <barButtonItem key="leftBarButtonItem" image="blue_hamburger" landscapeImage="blue_hamburger" largeContentSizeImage="blue_hamburger" width="24" id="560-po-f2u">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="onMenuTapped" destination="L75-OD-BdY" id="Jw3-Qz-61d"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o58-ZH-TLB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -118,4 +154,7 @@
             <point key="canvasLocation" x="-1202.4000000000001" y="778.56071964017997"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="blue_hamburger" width="24" height="24"/>
+    </resources>
 </document>
