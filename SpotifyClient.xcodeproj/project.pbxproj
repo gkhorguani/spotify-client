@@ -13,6 +13,7 @@
 		C73C132B21116D99003D6B29 /* SpotifyAudioPlayback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C73C132821116D86003D6B29 /* SpotifyAudioPlayback.framework */; };
 		C73C132F21116DE4003D6B29 /* BridgeHeaders.m in Sources */ = {isa = PBXBuildFile; fileRef = C73C132E21116DE4003D6B29 /* BridgeHeaders.m */; };
 		C73C1331211171C8003D6B29 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73C1330211171C8003D6B29 /* SignInViewController.swift */; };
+		C73C13342111867F003D6B29 /* SpotifyAuthUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73C13332111867F003D6B29 /* SpotifyAuthUtils.swift */; };
 		C73CDA21210D5FD400B6A3F7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73CDA20210D5FD400B6A3F7 /* HomeViewController.swift */; };
 		C73CDA25210D61E000B6A3F7 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73CDA24210D61E000B6A3F7 /* Router.swift */; };
 		C73CDA27210D622B00B6A3F7 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73CDA26210D622A00B6A3F7 /* Coordinator.swift */; };
@@ -55,6 +56,7 @@
 		C73C132D21116DE4003D6B29 /* BridgeHeaders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgeHeaders.h; sourceTree = "<group>"; };
 		C73C132E21116DE4003D6B29 /* BridgeHeaders.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BridgeHeaders.m; sourceTree = "<group>"; };
 		C73C1330211171C8003D6B29 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		C73C13332111867F003D6B29 /* SpotifyAuthUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyAuthUtils.swift; sourceTree = "<group>"; };
 		C73CDA20210D5FD400B6A3F7 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C73CDA24210D61E000B6A3F7 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		C73CDA26210D622A00B6A3F7 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -126,6 +128,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C73C133221118654003D6B29 /* SpotifyUtils */ = {
+			isa = PBXGroup;
+			children = (
+				C73C13332111867F003D6B29 /* SpotifyAuthUtils.swift */,
+			);
+			path = SpotifyUtils;
+			sourceTree = "<group>";
+		};
 		C73CDA23210D61CB00B6A3F7 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
@@ -169,6 +179,7 @@
 		C76F8F0D210D5A1C002B4756 /* SpotifyClient */ = {
 			isa = PBXGroup;
 			children = (
+				C73C133221118654003D6B29 /* SpotifyUtils */,
 				C73CDA23210D61CB00B6A3F7 /* Coordinators */,
 				C76F8F30210D5C36002B4756 /* ViewModel */,
 				C76F8F2F210D5C2A002B4756 /* View */,
@@ -412,6 +423,7 @@
 			files = (
 				C73CDA29210D625C00B6A3F7 /* PlaylistsCoordinator.swift in Sources */,
 				C73CDA37210E29F400B6A3F7 /* MenuRouteDelegate.swift in Sources */,
+				C73C13342111867F003D6B29 /* SpotifyAuthUtils.swift in Sources */,
 				C73CDA33210D704F00B6A3F7 /* MenuViewController.swift in Sources */,
 				C73CDA27210D622B00B6A3F7 /* Coordinator.swift in Sources */,
 				C76F8F0F210D5A1C002B4756 /* AppDelegate.swift in Sources */,

@@ -13,6 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var auth = SPTAuth()
+    var viewDelegate: SpotifyLoginViewDelegate?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         auth.redirectURL     = URL(string: "SpotifyClient://returnAfterLogin")
@@ -44,23 +45,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
-    // 1
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
-        // 2- check if app can handle redirect URL
         if auth.canHandle(auth.redirectURL) {
-            // 3 - handle callback in closure
             auth.handleAuthCallback(withTriggeredAuthURL: url, callback: { (error, session) in
-                // 4- handle error
                 if error != nil {
                     print("error!")
                 }
-                // 5- Add session to User Defaults
+                
                 let userDefaults = UserDefaults.standard
                 let sessionData = NSKeyedArchiver.archivedData(withRootObject: session!)
                 userDefaults.set(sessionData, forKey: "SpotifySession")
                 userDefaults.synchronize()
-                // 6 - Tell notification center login is successful
-                NotificationCenter.default.post(name: Notification.Name(rawValue: "loginSuccessfull"), object: nil)
+                
+                self.viewDelegate?.loginSuccessfull()
             })
             return true
         }

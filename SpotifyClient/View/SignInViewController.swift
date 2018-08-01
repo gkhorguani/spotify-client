@@ -8,17 +8,20 @@
 
 import UIKit
 
-class SignInViewController: UIViewController {
-    var clientId = ""
-    let callbackUrl = URL(string: "SpotifyClient://returnAfterLogin")
-    var loginUrl: URL?
+protocol SpotifyLoginViewDelegate {
+    func loginSuccessfull()
+}
 
+class SignInViewController: UIViewController {
     @IBOutlet weak var singInButton: UIButton!
+    
+    var spotifyAuthUtils: SpotifyAuthUtils?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NotificationCenter.default
-            .addObserver(self, selector: #selector(SignInViewController.updateAfterFirstLogin), name: Notification.Name("loginSuccessfull"), object: nil)
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.viewDelegate = self
         
         setupUI()
     }
@@ -27,36 +30,9 @@ class SignInViewController: UIViewController {
         view.backgroundColor = .blue
     }
     
-    @objc func updateAfterFirstLogin () {
-        let userDefaults = UserDefaults.standard
-        if let sessionObj:AnyObject = userDefaults.object(forKey: "SpotifySession") as AnyObject? {
-            let sessionDataObj = sessionObj as! Data
-            let firstTimeSession = NSKeyedUnarchiver.unarchiveObject(with: sessionDataObj) as! SPTSession
-            print(firstTimeSession)
-//            self.session = firstTimeSession
-//            initializePlayer(authSession: session)
-        }
-    }
-
     @IBAction func signInTapped(_ sender: Any) {
-        // Try to read the env var
-        if let env_var_client_id = ProcessInfo.processInfo.environment["spotifyClientId"] {
-            
-            clientId = env_var_client_id
-            let auth = SPTAuth.defaultInstance()
-            auth?.clientID = clientId
-            auth?.redirectURL = callbackUrl
-            auth?.requestedScopes = [SPTAuthStreamingScope]
-            
-            loginUrl = auth?.spotifyWebAuthenticationURL()
-            
-            UIApplication.shared.open(loginUrl!, options: [:]) { (result) in
-                // open page callback?
-            }
-        } else {
-            print("Could not read the environment variable - client id")
-        }
-        
+        spotifyAuthUtils = SpotifyAuthUtils()
+        spotifyAuthUtils?.didMount()
     }
     
     /*
@@ -69,4 +45,15 @@ class SignInViewController: UIViewController {
     }
     */
 
+}
+
+extension SignInViewController: SpotifyLoginViewDelegate {
+    func loginSuccessfull() {
+        let userDefaults = UserDefaults.standard
+        if let sessionObj:AnyObject = userDefaults.object(forKey: "SpotifySession") as AnyObject? {
+            let sessionDataObj = sessionObj as! Data
+            let firstTimeSession = NSKeyedUnarchiver.unarchiveObject(with: sessionDataObj) as! SPTSession
+            print(firstTimeSession)
+        }
+    }
 }
