@@ -32,4 +32,16 @@ class SpotifyAuthUtils {
     func didMount() {
         UIApplication.shared.open(loginUrl!, options: [:], completionHandler: nil)
     }
+    
+    func readAuthToken() -> SPTSession? {
+        let userDefaults = UserDefaults.standard
+        if let sessionObj:AnyObject = userDefaults.object(forKey: "SpotifySession") as AnyObject? {
+            let sessionDataObj = sessionObj as! Data
+            let firstTimeSession = NSKeyedUnarchiver.unarchiveObject(with: sessionDataObj) as! SPTSession
+            
+            return firstTimeSession
+        } else {
+            return nil
+        }
+    }
 }

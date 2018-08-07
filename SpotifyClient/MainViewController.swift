@@ -49,6 +49,10 @@ class MainViewController: UIViewController {
                 targetCasted.menuRouteDelegate = self
             }
         }
+        
+        if segue.identifier == "playerSegue" {
+            
+        }
     }
 
 }
