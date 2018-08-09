@@ -8,32 +8,17 @@
 
 import UIKit
 
-class PlayerViewController: UIViewController {
+class PlaybackViewController: UIViewController {
     var player: SPTAudioStreamingController?
     var spotifyAuthUtils: SpotifyAuthUtils?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        spotifyAuthUtils = SpotifyAuthUtils()
         
-        if let authToken = spotifyAuthUtils?.readAuthToken() {
-            initializePlayer(authSession: authToken)
-        }
-    }
-    
-    func initializePlayer(authSession:SPTSession){
-        if self.player == nil {
-            self.player = SPTAudioStreamingController.sharedInstance()
-            self.player!.playbackDelegate = self
-            self.player!.delegate = self
-            try! player!.start(withClientId: spotifyAuthUtils?.auth?.clientID)
-            self.player!.login(withAccessToken: authSession.accessToken)
-        }
     }
 }
 
-extension PlayerViewController: SPTAudioStreamingDelegate {
+extension PlaybackViewController: SPTAudioStreamingDelegate {
     func audioStreamingDidLogin(_ audioStreaming: SPTAudioStreamingController!) {
         // after a user authenticates a session, the SPTAudioStreamingController is then initialized and this method called
         print("logged in")
@@ -45,7 +30,9 @@ extension PlayerViewController: SPTAudioStreamingDelegate {
     }
 }
 
-extension PlayerViewController: SPTAudioStreamingPlaybackDelegate {
+// MARK: - Playback management
+
+extension PlaybackViewController: SPTAudioStreamingPlaybackDelegate {
     func audioStreaming(_ audioStreaming: SPTAudioStreamingController!, didStartPlayingTrack trackUri: String!) {
         print("Started \(trackUri)")
     }

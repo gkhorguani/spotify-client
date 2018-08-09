@@ -9,27 +9,25 @@
 import UIKit
 
 class PlaylistsViewController: UIViewController {
+    var player: SPTAudioStreamingController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         print("PLAYLISTS VC!!!")
+        
+        // overwrite the delegate
+        
+        self.player?.playbackDelegate = self
+        
+        // play Tash Sultana - Salvation
+        self.player?.playSpotifyURI("spotify:track:4va2tNNWYut7ycFZ2zjvTk", startingWith: 0, startingWithPosition: 0, callback: nil)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+}
+
+extension PlaylistsViewController: SPTAudioStreamingPlaybackDelegate {
+    func audioStreaming(_ audioStreaming: SPTAudioStreamingController!, didStartPlayingTrack trackUri: String!) {
+        print("Started \(trackUri) on my newly implemented delegate")
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

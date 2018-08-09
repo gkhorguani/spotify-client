@@ -21,4 +21,11 @@ class PlaylistsCoordinator: Coordinator {
         
         self.navigationController?.pushViewController(playlistsVC, animated: false)
     }
+    
+    func start(withPlayer player: SPTAudioStreamingController?) {
+        let playlistsVC = PlaylistsViewController()
+        playlistsVC.player = player
+        
+        self.navigationController?.pushViewController(playlistsVC, animated: false)
+    }
 }

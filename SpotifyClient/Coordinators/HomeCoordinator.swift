@@ -22,6 +22,10 @@ class HomeCoordinator: Coordinator {
     func start(_ router: Router<String>?) {
         // This is an entry point
     }
+    
+    func start(withPlayer player: SPTAudioStreamingController?) {
+        
+    }
 }
 
 extension HomeCoordinator: HomeCoordinatorViewDelegate {

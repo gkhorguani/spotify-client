@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController, LayoutViewController, SideMenuable {
+class HomeViewController: UIViewController, LayoutProvider, SideMenuable {
     weak var sideMenuDelegate: SideMenuViewDelegate?
     var homeCoordinator: HomeCoordinator?
     

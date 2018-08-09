@@ -12,7 +12,7 @@ protocol SpotifyLoginViewDelegate {
     func loginSuccessfull()
 }
 
-class SignInViewController: UIViewController {
+class SignInViewController: UIViewController, LayoutProvider {
     @IBOutlet weak var singInButton: UIButton!
     
     var spotifyAuthUtils: SpotifyAuthUtils?
@@ -27,7 +27,7 @@ class SignInViewController: UIViewController {
     }
     
     func setupUI() {
-        view.backgroundColor = .blue
+        setupLayout()
     }
     
     @IBAction func signInTapped(_ sender: Any) {
