@@ -8,7 +8,8 @@
 
 import UIKit
 
-class PlaylistsViewController: UIViewController {
+class PlaylistsViewController: UIViewController, SideMenuable {
+    weak var sideMenuDelegate: SideMenuViewDelegate?
     var player: SPTAudioStreamingController?
 
     override func viewDidLoad() {
@@ -22,6 +23,17 @@ class PlaylistsViewController: UIViewController {
         
         // play Tash Sultana - Salvation
         self.player?.playSpotifyURI("spotify:track:4va2tNNWYut7ycFZ2zjvTk", startingWith: 0, startingWithPosition: 0, callback: nil)
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "test", style: .done, target: self, action: #selector(onMenuTapped))
+    }
+    
+    @objc func onMenuTapped() {
+        print("Menu tapped!!!!!!!!")
+        sideMenuDelegate?.toggleSideMenu()
+    }
+    
+    func getNavigationStack() -> UINavigationController? {
+        return navigationController
     }
 
 }

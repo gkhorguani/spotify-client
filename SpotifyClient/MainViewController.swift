@@ -32,8 +32,6 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        createPlayer()
     }
     
     func showSideMenu() {
@@ -95,7 +93,7 @@ extension MainViewController: MenuRouteDelegate {
     func goToPlaylists() {
         self.toggleSideMenu()
         
-        let playlistsCoordinator = PlaylistsCoordinator(self.navigationStack)
+        let playlistsCoordinator = PlaylistsCoordinator(self.navigationStack, menuDelegate: self)
         playlistsCoordinator.start(withPlayer: self.player)
     }
 }

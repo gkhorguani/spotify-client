@@ -71,23 +71,10 @@
                     <view key="view" contentMode="scaleToFill" id="Xcz-dR-J8c">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UlP-IU-IjE">
-                                <rect key="frame" x="164" y="419" width="47" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Sign In">
-                                    <color key="titleColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="signInTapped:" destination="a7M-8t-OHu" eventType="touchUpInside" id="PYu-8g-iEa"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="g4a-3w-qqd"/>
                     </view>
                     <connections>
-                        <outlet property="singInButton" destination="UlP-IU-IjE" id="OFI-fp-ks8"/>
                         <segue destination="T1v-u5-KOl" kind="show" identifier="showMainScene" id="8hM-NF-B5d"/>
                     </connections>
                 </viewController>

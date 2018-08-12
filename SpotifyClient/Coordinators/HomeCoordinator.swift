@@ -30,7 +30,7 @@ class HomeCoordinator: Coordinator {
 
 extension HomeCoordinator: HomeCoordinatorViewDelegate {
     func showPlaylist(playlistId: String) {
-        let playlistsCoordinator = PlaylistsCoordinator(self.navigationController)
+        let playlistsCoordinator = PlaylistsCoordinator(self.navigationController, menuDelegate: nil)
         let router = Router<String>()
         router.setParmeters(playlistId)
         
