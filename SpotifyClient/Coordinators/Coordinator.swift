@@ -12,7 +12,6 @@ protocol Coordinator: class {
     associatedtype Parameter
     
     func start(_ router: Router<Parameter>?)
-    func start(withPlayer player: SPTAudioStreamingController?)
 }
 
 protocol SideMenuViewDelegate: class {

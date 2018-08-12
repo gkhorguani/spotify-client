@@ -9,26 +9,11 @@
 import UIKit
 
 class MainViewController: UIViewController {
-    var player: SPTAudioStreamingController?
     var spotifyAuthUtils: SpotifyAuthUtils?
     
     var isOpen = false
     var navigationStack: UINavigationController?
     @IBOutlet weak var menuLeftConstraint: NSLayoutConstraint!
-    
-    fileprivate func createPlayer<T>(delegate: T) {
-        spotifyAuthUtils = SpotifyAuthUtils()
-        
-        if let authToken = spotifyAuthUtils?.readAuthToken() {
-            if self.player == nil {
-                self.player = SPTAudioStreamingController.sharedInstance()
-                self.player!.playbackDelegate = delegate as! SPTAudioStreamingPlaybackDelegate
-                self.player!.delegate = delegate as! SPTAudioStreamingDelegate
-                try! player!.start(withClientId: spotifyAuthUtils?.auth?.clientID)
-                self.player!.login(withAccessToken: authToken.accessToken)
-            }
-        }
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,9 +57,8 @@ class MainViewController: UIViewController {
             if targetController is PlaybackViewController {
                 let playerVC = targetController as! PlaybackViewController
                 
-                createPlayer(delegate: playerVC)
-                
-                playerVC.player = self.player
+                PlayerSingleton.sharedInstance.player?.delegate = playerVC
+                PlayerSingleton.sharedInstance.player?.playbackDelegate = playerVC
             }
         }
     }
@@ -94,6 +78,6 @@ extension MainViewController: MenuRouteDelegate {
         self.toggleSideMenu()
         
         let playlistsCoordinator = PlaylistsCoordinator(self.navigationStack, menuDelegate: self)
-        playlistsCoordinator.start(withPlayer: self.player)
+        playlistsCoordinator.start(nil)
     }
 }

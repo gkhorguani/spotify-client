@@ -7,14 +7,20 @@
 //
 
 import UIKit
+import SnapKit
 
 class HomeViewController: UIViewController, LayoutProvider, SideMenuable {
     weak var sideMenuDelegate: SideMenuViewDelegate?
     var homeCoordinator: HomeCoordinator?
+    var homePageVM = HomePageViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        
+        homePageVM.getFeaturedPlaylists {
+            print("Feched the playlists..")
+        }
     }
     
     func setupUI() {

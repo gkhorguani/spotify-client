@@ -20,16 +20,9 @@ class PlaylistsCoordinator: Coordinator {
     func start(_ router: Router<String>?) {
         // ...
         let playlistsVC = PlaylistsViewController()
-        
-        self.navigationController?.pushViewController(playlistsVC, animated: false)
-    }
-    
-    func start(withPlayer player: SPTAudioStreamingController?) {
-        let playlistsVC = PlaylistsViewController()
-        playlistsVC.player = player
-        
         playlistsVC.sideMenuDelegate = menuDelegate
         
         self.navigationController?.pushViewController(playlistsVC, animated: false)
     }
+    
 }
