@@ -9,7 +9,9 @@
 import UIKit
 
 protocol LayoutProvider {
-    
+    func setupLayout()
+    func setNavBarTransparency()
+    func setNavBar(title: String)
 }
 
 extension LayoutProvider where Self: UIViewController {
@@ -17,7 +19,19 @@ extension LayoutProvider where Self: UIViewController {
         self.view.backgroundColor = UIColor(red:0.10, green:0.11, blue:0.16, alpha:1.0)
         self.navigationController?.navigationBar.barTintColor = UIColor(red:0.10, green:0.11, blue:0.16, alpha:1.0)
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
-        self.navigationController?.navigationBar.isTranslucent = false
+        
+        setNavBarTransparency()
+    }
+    
+    func setNavBarTransparency() {
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = .clear
+    }
+    
+    func setNavBar(title: String) {
+        navigationItem.title = title
     }
 }
 

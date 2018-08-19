@@ -8,13 +8,13 @@
 
 import UIKit
 
-class PlaylistsViewController: UIViewController, SideMenuable {
+class PlaylistsViewController: UIViewController, LayoutProvider, SideMenuable {
     weak var sideMenuDelegate: SideMenuViewDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        print("PLAYLISTS VC!!!")
+        setupLayout()
+        setNavBar(title: "Playlists")
         
         // overwrite the delegate
         PlayerSingleton.sharedInstance.player?.playbackDelegate = self

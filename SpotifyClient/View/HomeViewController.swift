@@ -17,6 +17,7 @@ class HomeViewController: UIViewController, LayoutProvider, SideMenuable {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        setNavBar(title: "Home")
         render()
         
         homePageVM.getFeaturedPlaylists {

@@ -137,14 +137,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		C72ACD2021293EC300387279 /* UIHelpers */ = {
-			isa = PBXGroup;
-			children = (
-				C72ACD2121293ED600387279 /* TextFieldHelpers.swift */,
-			);
-			path = UIHelpers;
-			sourceTree = "<group>";
-		};
 		C73C133221118654003D6B29 /* SpotifyUtils */ = {
 			isa = PBXGroup;
 			children = (
@@ -170,6 +162,7 @@
 		C73CDA38210E979C00B6A3F7 /* Layout */ = {
 			isa = PBXGroup;
 			children = (
+				C72ACD2121293ED600387279 /* TextFieldHelpers.swift */,
 				C73CDA39210E97B100B6A3F7 /* LayoutProvider.swift */,
 			);
 			path = Layout;
@@ -198,7 +191,6 @@
 		C76F8F0D210D5A1C002B4756 /* SpotifyClient */ = {
 			isa = PBXGroup;
 			children = (
-				C72ACD2021293EC300387279 /* UIHelpers */,
 				C73C133221118654003D6B29 /* SpotifyUtils */,
 				C73CDA23210D61CB00B6A3F7 /* Coordinators */,
 				C76F8F30210D5C36002B4756 /* ViewModel */,
