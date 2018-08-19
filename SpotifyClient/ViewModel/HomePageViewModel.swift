@@ -11,7 +11,6 @@ class HomePageViewModel {
     
     func getFeaturedPlaylists(limit: Int = 5, completion: @escaping () -> Void) {
         homePageModel.fetchFeaturedPlaylists() { result in
-//            print(result)
             completion()
         }
     }

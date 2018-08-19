@@ -17,10 +17,12 @@ class HomeViewController: UIViewController, LayoutProvider, SideMenuable {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        render()
         
         homePageVM.getFeaturedPlaylists {
             print("Feched the playlists..")
         }
+        
     }
     
     func setupUI() {
@@ -35,4 +37,34 @@ class HomeViewController: UIViewController, LayoutProvider, SideMenuable {
     func getNavigationStack() -> UINavigationController? {
         return navigationController
     }
+    
+    func render() {
+        let searchButton = UIButton()
+        searchButton.setTitle("Go", for: .normal)
+        searchButton.setTitleColor(.blue, for: .normal)
+        searchButton.layer.cornerRadius = 25
+        
+        let searchTextBox = UITextField()
+        searchTextBox.placeholder = "Search anything.."
+        searchTextBox.backgroundColor = .white
+        searchTextBox.layer.cornerRadius = 25
+        searchTextBox.setLeftPaddingPoints(20)
+        searchTextBox.rightView = searchButton
+        searchTextBox.rightViewMode = .always
+        view.addSubview(searchTextBox)
+        
+        searchButton.snp.makeConstraints { (make) in
+            make.width.height.equalTo(50)
+        }
+        
+        searchTextBox.snp.makeConstraints { (make) in
+            make.height.equalTo(50)
+            make.leading.equalTo(view).offset(50)
+            make.trailing.equalTo(view).offset(-50)
+            make.top.equalTo(view).offset(50)
+            make.centerX.equalTo(view)
+        }
+        
+    }
+    
 }

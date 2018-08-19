@@ -27,7 +27,7 @@
                                     <segue destination="zbC-KS-17m" kind="embed" identifier="menuSegue" id="8Pi-hX-yiO"/>
                                 </connections>
                             </containerView>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MNS-zb-dgA" userLabel="Main View">
+                            <containerView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="MNS-zb-dgA" userLabel="Main View">
                                 <rect key="frame" x="0.0" y="44" width="375" height="684"/>
                                 <connections>
                                     <segue destination="hqe-5D-oPc" kind="embed" identifier="appSegue" id="V80-k3-Sfw"/>
@@ -44,15 +44,15 @@
                         <constraints>
                             <constraint firstItem="bJl-qq-F1U" firstAttribute="leading" secondItem="Rq1-v7-cqM" secondAttribute="leading" constant="-240" id="2Ca-Na-aDK"/>
                             <constraint firstItem="bJl-qq-F1U" firstAttribute="bottom" secondItem="Rq1-v7-cqM" secondAttribute="bottom" id="2P2-eM-Ylz"/>
-                            <constraint firstItem="HtM-6O-eEc" firstAttribute="trailing" secondItem="Rq1-v7-cqM" secondAttribute="trailing" id="5Jl-wE-n1p"/>
                             <constraint firstItem="MNS-zb-dgA" firstAttribute="leading" secondItem="bJl-qq-F1U" secondAttribute="trailing" id="7Wx-hg-kvc"/>
                             <constraint firstItem="MNS-zb-dgA" firstAttribute="bottom" secondItem="Rq1-v7-cqM" secondAttribute="bottom" constant="-50" id="Jrg-mq-JaZ"/>
+                            <constraint firstItem="HtM-6O-eEc" firstAttribute="width" secondItem="MBF-Eh-trS" secondAttribute="width" id="Krg-LW-HxS"/>
                             <constraint firstItem="HtM-6O-eEc" firstAttribute="bottom" secondItem="Rq1-v7-cqM" secondAttribute="bottom" id="S67-fE-Imh"/>
+                            <constraint firstItem="MNS-zb-dgA" firstAttribute="width" secondItem="MBF-Eh-trS" secondAttribute="width" id="WJp-iY-AnJ"/>
                             <constraint firstItem="HtM-6O-eEc" firstAttribute="leading" secondItem="bJl-qq-F1U" secondAttribute="trailing" id="mFW-OY-YZr"/>
                             <constraint firstItem="MNS-zb-dgA" firstAttribute="top" secondItem="Rq1-v7-cqM" secondAttribute="top" id="ma0-fm-Cet"/>
                             <constraint firstItem="HtM-6O-eEc" firstAttribute="top" secondItem="MNS-zb-dgA" secondAttribute="bottom" id="oGI-tg-NSM"/>
                             <constraint firstItem="bJl-qq-F1U" firstAttribute="top" secondItem="Rq1-v7-cqM" secondAttribute="top" id="pJ5-SR-Zvd"/>
-                            <constraint firstAttribute="trailing" secondItem="MNS-zb-dgA" secondAttribute="trailing" id="xOs-24-GA1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Rq1-v7-cqM"/>
                     </view>
