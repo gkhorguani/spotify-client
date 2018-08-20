@@ -20,13 +20,11 @@ class MainViewController: UIViewController {
     }
     
     func showSideMenu() {
-        menuLeftConstraint.constant = isOpen ? -240 : 0
-        isOpen = !isOpen
-    }
-    
-    func hideSideMenu() {
-        menuLeftConstraint.constant = -240
-        isOpen = false
+        UIView.animate(withDuration: 0.3) {
+            self.menuLeftConstraint.constant = self.isOpen ? -240 : 0
+            self.view.layoutIfNeeded()
+            self.isOpen = !self.isOpen
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
