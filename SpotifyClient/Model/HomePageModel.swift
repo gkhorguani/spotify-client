@@ -33,6 +33,11 @@ class HomePageModel {
                 
                 for playlist: SPTPartialPlaylist in playlistItems! {
                     print(playlist.name)
+                    
+                    if let img: SPTImage = playlist.images.first as? SPTImage {
+                        print("Img url \(img.imageURL)")
+                    }
+                    
                 }
                 
                 completion(["Test", "Test2"])

@@ -14,6 +14,15 @@ class HomeViewController: UIViewController, LayoutProvider, SideMenuable {
     var homeCoordinator: HomeCoordinator?
     var homePageVM = HomePageViewModel()
     
+    // MARK: - UI Elements
+    lazy var headerImageView: UIImageView = {
+        let iv = UIImageView()
+        iv.image = UIImage(named: "header_texture")
+        iv.contentMode = .scaleToFill
+        
+        return iv
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -39,7 +48,14 @@ class HomeViewController: UIViewController, LayoutProvider, SideMenuable {
         return navigationController
     }
     
+    // MARK: - Render
     func render() {
+        view.addSubview(headerImageView)
+        headerImageView.snp.makeConstraints { (make) in
+            make.leading.trailing.equalTo(view)
+            make.height.equalTo(150)
+        }
+        
         let searchButton = UIButton()
         searchButton.setTitle("Go", for: .normal)
         searchButton.setTitleColor(.blue, for: .normal)
