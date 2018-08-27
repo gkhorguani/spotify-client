@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-class HomeViewController: UIViewController, LayoutProvider, SideMenuable {
+class HomeViewController: UIViewController, LayoutProvider, SideMenuable, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     weak var sideMenuDelegate: SideMenuViewDelegate?
     var homeCoordinator: HomeCoordinator?
     var homePageVM = HomePageViewModel()
@@ -21,6 +21,16 @@ class HomeViewController: UIViewController, LayoutProvider, SideMenuable {
         iv.contentMode = .scaleToFill
         
         return iv
+    }()
+    
+    lazy var featuredPlaylistsCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        let cv = UICollectionView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 100), collectionViewLayout: layout)
+        
+        cv.backgroundColor = .clear
+        
+        return cv
     }()
     
     override func viewDidLoad() {
@@ -37,6 +47,10 @@ class HomeViewController: UIViewController, LayoutProvider, SideMenuable {
     
     func setupUI() {
         self.setupLayout()
+        
+        featuredPlaylistsCollectionView.dataSource = self
+        featuredPlaylistsCollectionView.delegate = self
+        featuredPlaylistsCollectionView.register(FeaturedPlaylistsCell.self, forCellWithReuseIdentifier: cellid)
     }
     
     @IBAction func onMenuTapped() {
@@ -82,6 +96,29 @@ class HomeViewController: UIViewController, LayoutProvider, SideMenuable {
             make.centerX.equalTo(view)
         }
         
+        view.addSubview(featuredPlaylistsCollectionView)
+        featuredPlaylistsCollectionView.snp.makeConstraints { (make) in
+            make.top.equalTo(searchTextBox.snp.bottom)
+            make.leading.trailing.equalTo(view)
+            make.height.equalTo(150)
+        }
+    }
+    
+    // MARK: - Featured playlists collection view
+    private let cellid = "cellid"
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        return featuredPlaylistsCollectionView.dequeueReusableCell(withReuseIdentifier: cellid, for: indexPath) as! FeaturedPlaylistsCell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 100, height: 150)
     }
     
 }
