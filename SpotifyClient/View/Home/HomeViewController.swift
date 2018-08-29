@@ -98,7 +98,7 @@ class HomeViewController: UIViewController, LayoutProvider, SideMenuable, UIColl
         
         view.addSubview(featuredPlaylistsCollectionView)
         featuredPlaylistsCollectionView.snp.makeConstraints { (make) in
-            make.top.equalTo(searchTextBox.snp.bottom)
+            make.top.equalTo(headerImageView.snp.bottom)
             make.leading.trailing.equalTo(view)
             make.height.equalTo(150)
         }

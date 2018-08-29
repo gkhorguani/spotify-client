@@ -240,7 +240,7 @@
 		C76F8F2F210D5C2A002B4756 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C73CDA38210E979C00B6A3F7 /* Layout */,
+				C7B30D3E21339FAD00B5BC8E /* Shared */,
 				C72ACD23213388E900387279 /* Home */,
 				C73CDA2A210D638300B6A3F7 /* PlaylistsViewController.swift */,
 				C73CDA34210D7CB000B6A3F7 /* ProfileViewController.swift */,
@@ -256,6 +256,14 @@
 				C71D1DAF211FE5D0006DF250 /* HomePageViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C7B30D3E21339FAD00B5BC8E /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				C73CDA38210E979C00B6A3F7 /* Layout */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
