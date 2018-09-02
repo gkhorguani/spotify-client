@@ -6,8 +6,6 @@
 //  Copyright © 2018 Giorgi Khorguani. All rights reserved.
 //
 
-import RxSwift
-
 class HomePageModel {
     let sptAuthUtils: SpotifyAuthUtils?
     
@@ -15,13 +13,13 @@ class HomePageModel {
         self.sptAuthUtils = sptAuthUtils
     }
     
-    func fetchFeaturedPlaylists(completion: @escaping ([String]) -> Void) {
+    func fetchFeaturedPlaylists(limit: Int, completion: @escaping ([FeaturedPlaylistItem]?) -> Void) {
         let authToken = sptAuthUtils?.readAuthToken()
         do {
             let requestFactory = PerformSPRequest()
             let playlistsRequest : URLRequest = try SPTBrowse.createRequestForFeaturedPlaylists(
                                             inCountry: "US",
-                                            limit: 5,
+                                            limit: limit,
                                             offset: 0,
                                             locale: nil,
                                             timestamp: nil,
@@ -31,7 +29,7 @@ class HomePageModel {
                 // Success
                 let playlistList: SPTFeaturedPlaylistList = try SPTFeaturedPlaylistList(from: data, with: response)
                 let playlistItems = playlistList.items as? [SPTPartialPlaylist]
-                print(playlistList.message)
+                var results: [FeaturedPlaylistItem]? = []
                 
                 for playlist: SPTPartialPlaylist in playlistItems! {
                     print(playlist.name)
@@ -42,7 +40,16 @@ class HomePageModel {
                     
                 }
                 
-                completion(["Test", "Test2"])
+                results = playlistItems?.map({ playlist in
+                    if let playlistFirstImage = playlist.images.first as? SPTImage {
+                        return FeaturedPlaylistItem(name: playlist.name, imageUrl: playlistFirstImage.imageURL)
+                    }
+                    
+                    return FeaturedPlaylistItem(name: playlist.name, imageUrl: nil)
+                })
+                
+                completion(results)
+                
             }, onError: { error in
                 // Failure
                 print(error)
@@ -52,38 +59,9 @@ class HomePageModel {
         }
     }
     
-    func getPlaylists() -> Observable<[SPTPartialPlaylist]?> {
-        return Observable.create({ [weak self] (observer) -> Disposable in
-            
-            let authToken = self?.sptAuthUtils?.readAuthToken()
-            do {
-                let requestFactory = PerformSPRequest()
-                let playlistsRequest : URLRequest = try SPTBrowse.createRequestForFeaturedPlaylists(
-                    inCountry: "US",
-                    limit: 5,
-                    offset: 0,
-                    locale: nil,
-                    timestamp: nil,
-                    accessToken: authToken?.accessToken)
-                
-                requestFactory.perform(request: playlistsRequest, completion: { (error, response, data) in
-                    // Success
-                    let playlistList: SPTFeaturedPlaylistList = try SPTFeaturedPlaylistList(from: data, with: response)
-                    let playlistItems = playlistList.items as? [SPTPartialPlaylist]
-                    
-                    observer.onNext(playlistItems)
-                }, onError: { error in
-                    // Failure
-                    observer.onError(error)
-                })
-            } catch {
-                observer.onError(error)
-            }
-            
-            return Disposables.create {
-                
-            }
-        })
-    }
-    
+}
+
+struct FeaturedPlaylistItem {
+    var name: String
+    var imageUrl: URL?
 }

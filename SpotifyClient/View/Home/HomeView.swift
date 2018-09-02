@@ -60,13 +60,13 @@ class HomeView: UIView {
             make.height.equalTo(50)
             make.leading.equalTo(self).offset(50)
             make.trailing.equalTo(self).offset(-50)
-            make.top.equalTo(self).offset(50)
+            make.top.equalTo(self).offset(90)
             make.centerX.equalTo(self)
         }
         
         addSubview(featuredPlaylistsCollectionView)
         featuredPlaylistsCollectionView.snp.makeConstraints { (make) in
-            make.top.equalTo(headerImageView.snp.bottom)
+            make.top.equalTo(searchTextBox.snp.bottom).offset(50)
             make.leading.trailing.equalTo(self)
             make.height.equalTo(150)
         }

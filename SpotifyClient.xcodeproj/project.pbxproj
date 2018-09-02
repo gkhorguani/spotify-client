@@ -33,6 +33,8 @@
 		C73CDA37210E29F400B6A3F7 /* MenuRouteDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73CDA36210E29F400B6A3F7 /* MenuRouteDelegate.swift */; };
 		C73CDA3A210E97B100B6A3F7 /* LayoutProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73CDA39210E97B100B6A3F7 /* LayoutProvider.swift */; };
 		C7578EE1213B8F9200A754F9 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7578EE0213B8F9200A754F9 /* HomeView.swift */; };
+		C7578EE4213CA05E00A754F9 /* FeaturedPlaylistCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7578EE3213CA05E00A754F9 /* FeaturedPlaylistCellViewModel.swift */; };
+		C7578EE6213CA2D100A754F9 /* UIImageHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7578EE5213CA2D100A754F9 /* UIImageHelpers.swift */; };
 		C76F8F0F210D5A1C002B4756 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76F8F0E210D5A1C002B4756 /* AppDelegate.swift */; };
 		C76F8F14210D5A1C002B4756 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C76F8F12210D5A1C002B4756 /* Main.storyboard */; };
 		C76F8F16210D5A1D002B4756 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C76F8F15210D5A1D002B4756 /* Assets.xcassets */; };
@@ -82,6 +84,8 @@
 		C73CDA36210E29F400B6A3F7 /* MenuRouteDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuRouteDelegate.swift; sourceTree = "<group>"; };
 		C73CDA39210E97B100B6A3F7 /* LayoutProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutProvider.swift; sourceTree = "<group>"; };
 		C7578EE0213B8F9200A754F9 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		C7578EE3213CA05E00A754F9 /* FeaturedPlaylistCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedPlaylistCellViewModel.swift; sourceTree = "<group>"; };
+		C7578EE5213CA2D100A754F9 /* UIImageHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageHelpers.swift; sourceTree = "<group>"; };
 		C76F8F0B210D5A1C002B4756 /* SpotifyClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpotifyClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C76F8F0E210D5A1C002B4756 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C76F8F13210D5A1C002B4756 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -178,8 +182,18 @@
 			children = (
 				C72ACD2121293ED600387279 /* TextFieldHelpers.swift */,
 				C73CDA39210E97B100B6A3F7 /* LayoutProvider.swift */,
+				C7578EE5213CA2D100A754F9 /* UIImageHelpers.swift */,
 			);
 			path = Layout;
+			sourceTree = "<group>";
+		};
+		C7578EE2213CA04700A754F9 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				C71D1DAF211FE5D0006DF250 /* HomePageViewModel.swift */,
+				C7578EE3213CA05E00A754F9 /* FeaturedPlaylistCellViewModel.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		C76F8F02210D5A1C002B4756 = {
@@ -256,7 +270,7 @@
 		C76F8F30210D5C36002B4756 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				C71D1DAF211FE5D0006DF250 /* HomePageViewModel.swift */,
+				C7578EE2213CA04700A754F9 /* Home */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -462,6 +476,7 @@
 				C73C1336211939B6003D6B29 /* PlaybackViewController.swift in Sources */,
 				C71D1DB0211FE5D0006DF250 /* HomePageViewModel.swift in Sources */,
 				C73CDA37210E29F400B6A3F7 /* MenuRouteDelegate.swift in Sources */,
+				C7578EE6213CA2D100A754F9 /* UIImageHelpers.swift in Sources */,
 				C73C13342111867F003D6B29 /* SpotifyAuthUtils.swift in Sources */,
 				C71D1DAE211FE5B2006DF250 /* HomePageModel.swift in Sources */,
 				C73CDA33210D704F00B6A3F7 /* MenuViewController.swift in Sources */,
@@ -478,6 +493,7 @@
 				C73CDA35210D7CB000B6A3F7 /* ProfileViewController.swift in Sources */,
 				C73CDA2D210D63F400B6A3F7 /* HomeCoordinator.swift in Sources */,
 				C73CDA31210D703C00B6A3F7 /* AppViewController.swift in Sources */,
+				C7578EE4213CA05E00A754F9 /* FeaturedPlaylistCellViewModel.swift in Sources */,
 				C73CDA21210D5FD400B6A3F7 /* HomeViewController.swift in Sources */,
 				C7578EE1213B8F9200A754F9 /* HomeView.swift in Sources */,
 				C73CDA2F210D6F6600B6A3F7 /* MainViewController.swift in Sources */,

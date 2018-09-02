@@ -9,10 +9,17 @@
 import UIKit
 
 class HomeViewController: UIViewController, LayoutProvider, SideMenuable {
+    var homeView: HomeView! { return self.view as! HomeView }
     weak var sideMenuDelegate: SideMenuViewDelegate?
     var homeCoordinator: HomeCoordinator?
-    var homePageVM = HomePageViewModel()
-    var homeView: HomeView! { return self.view as! HomeView }
+    var homePageVM: HomePageViewModel? {
+        willSet {
+            homePageVM?.viewDelegate = nil
+        }
+        didSet {
+            homePageVM?.viewDelegate = self
+        }
+    }
     
     private let cellid = "cellid"
     
@@ -26,13 +33,13 @@ class HomeViewController: UIViewController, LayoutProvider, SideMenuable {
         setupUI()
         setNavBar(title: "Home")
         
+        homePageVM = HomePageViewModel()
+        
         homeView.featuredPlaylistsCollectionView.dataSource = self
         homeView.featuredPlaylistsCollectionView.delegate = self
         homeView.featuredPlaylistsCollectionView.register(FeaturedPlaylistsCell.self, forCellWithReuseIdentifier: cellid)
 
-        homePageVM.getFeaturedPlaylists {
-            print("Feched the playlists..")
-        }
+        homePageVM?.getFeaturedPlaylists()
         
     }
     
@@ -55,17 +62,28 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     // MARK: - Featured playlists collection view
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return homePageVM?.featuredPlaylsits.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return homeView.featuredPlaylistsCollectionView.dequeueReusableCell(withReuseIdentifier: cellid, for: indexPath) as! FeaturedPlaylistsCell
+        let cell = homeView.featuredPlaylistsCollectionView.dequeueReusableCell(withReuseIdentifier: cellid, for: indexPath) as! FeaturedPlaylistsCell
+        let featuredPlaylist = homePageVM?.featuredPlaylsits[indexPath.row]
+        cell.cellVM = FeaturedPlaylistCellViewModel(name: featuredPlaylist?.name, imageURL: featuredPlaylist?.imageUrl)
+        
+        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 100, height: 150)
+        return CGSize(width: 150, height: 150)
+    }
+    
+}
+
+extension HomeViewController: HomePageViewModelDelegate {
+    func featuredPlaylistsFetched() {
+        homeView.featuredPlaylistsCollectionView.reloadData()
     }
     
 }
