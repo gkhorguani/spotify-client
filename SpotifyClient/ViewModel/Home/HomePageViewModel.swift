@@ -11,7 +11,7 @@ class HomePageViewModel {
     var viewDelegate: HomePageViewModelDelegate?
     var featuredPlaylsits: [FeaturedPlaylistItem] = []
     
-    func getFeaturedPlaylists(limit: Int = 4) {
+    func getFeaturedPlaylists(limit: Int = 10) {
         
         homePageModel.fetchFeaturedPlaylists(limit: limit) { (result: [FeaturedPlaylistItem]?) -> () in
             if let response = result {

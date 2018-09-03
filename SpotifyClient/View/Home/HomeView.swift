@@ -23,9 +23,10 @@ class HomeView: UIView {
     lazy var featuredPlaylistsCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        let cv = UICollectionView(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: 100), collectionViewLayout: layout)
+        let cv = UICollectionView(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: 275), collectionViewLayout: layout)
         
         cv.backgroundColor = .clear
+        cv.showsHorizontalScrollIndicator = false
         
         return cv
     }()
@@ -66,9 +67,9 @@ class HomeView: UIView {
         
         addSubview(featuredPlaylistsCollectionView)
         featuredPlaylistsCollectionView.snp.makeConstraints { (make) in
-            make.top.equalTo(searchTextBox.snp.bottom).offset(50)
+            make.top.equalTo(searchTextBox.snp.bottom)
             make.leading.trailing.equalTo(self)
-            make.height.equalTo(150)
+            make.height.equalTo(275)
         }
     }
 }

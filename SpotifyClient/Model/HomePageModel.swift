@@ -31,15 +31,6 @@ class HomePageModel {
                 let playlistItems = playlistList.items as? [SPTPartialPlaylist]
                 var results: [FeaturedPlaylistItem]? = []
                 
-                for playlist: SPTPartialPlaylist in playlistItems! {
-                    print(playlist.name)
-                    
-                    if let img: SPTImage = playlist.images.first as? SPTImage {
-                        print("Img url \(img.imageURL)")
-                    }
-                    
-                }
-                
                 results = playlistItems?.map({ playlist in
                     if let playlistFirstImage = playlist.images.first as? SPTImage {
                         return FeaturedPlaylistItem(name: playlist.name, imageUrl: playlistFirstImage.imageURL)

@@ -40,7 +40,6 @@ class HomeViewController: UIViewController, LayoutProvider, SideMenuable {
         homeView.featuredPlaylistsCollectionView.register(FeaturedPlaylistsCell.self, forCellWithReuseIdentifier: cellid)
 
         homePageVM?.getFeaturedPlaylists()
-        
     }
     
     func setupUI() {
@@ -48,7 +47,6 @@ class HomeViewController: UIViewController, LayoutProvider, SideMenuable {
     }
     
     @IBAction func onMenuTapped() {
-        print("Menu tapped")
         sideMenuDelegate?.toggleSideMenu()
     }
     
@@ -77,6 +75,10 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 150, height: 150)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsetsMake(10, 20, 10, 20)
     }
     
 }

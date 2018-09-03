@@ -13,10 +13,16 @@ class FeaturedPlaylistsCell: UICollectionViewCell {
     
     var imageView: UIImageView = {
         var iv = UIImageView()
-        iv.frame = CGRect(x: 0, y: 0, width: 150, height: 150)
-        iv.contentMode = .scaleAspectFit
+        iv.contentMode = .scaleAspectFill
         
         return iv
+    }()
+    
+    var playlistNameLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .white
+        
+        return label
     }()
     
     override init(frame: CGRect) {
@@ -36,9 +42,18 @@ class FeaturedPlaylistsCell: UICollectionViewCell {
     
     func setupBindings() {
         imageView.imageFromURL(urlString: cellVM?.imageURL?.absoluteString ?? "")
+        playlistNameLabel.text = cellVM?.name
     }
     
     func render() {
         addSubview(imageView)
+        imageView.frame = CGRect(x: 0, y: 0, width: frame.width, height: frame.width)
+        
+        addSubview(playlistNameLabel)
+        
+        playlistNameLabel.snp.makeConstraints { (make) in
+            make.leading.equalTo(contentView)
+            make.bottom.equalTo(imageView).offset(25)
+        }
     }
 }
