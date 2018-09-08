@@ -33,7 +33,10 @@ class HomeViewController: UIViewController, LayoutProvider, SideMenuable {
         setupUI()
         setNavBar(title: "Home")
         
+        // This might be refactored
+        // Coordinator start method should cover this
         homePageVM = HomePageViewModel()
+        homeCoordinator = HomeCoordinator(navigationController)
         
         homeView.featuredPlaylistsCollectionView.dataSource = self
         homeView.featuredPlaylistsCollectionView.delegate = self

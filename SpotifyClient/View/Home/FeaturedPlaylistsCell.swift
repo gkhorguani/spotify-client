@@ -50,7 +50,6 @@ class FeaturedPlaylistsCell: UICollectionViewCell {
         imageView.frame = CGRect(x: 0, y: 0, width: frame.width, height: frame.width)
         
         addSubview(playlistNameLabel)
-        
         playlistNameLabel.snp.makeConstraints { (make) in
             make.leading.equalTo(contentView)
             make.bottom.equalTo(imageView).offset(25)
