@@ -23,7 +23,8 @@ class HomePageModel {
                                             offset: 0,
                                             locale: nil,
                                             timestamp: nil,
-                                            accessToken: authToken?.accessToken)
+                                            accessToken: authToken?.accessToken
+            )
             
             requestFactory.perform(request: playlistsRequest, completion: { (error, response, data) in
                 // Success
@@ -44,6 +45,36 @@ class HomePageModel {
             }, onError: { error in
                 // Failure
                 print(error)
+            })
+        } catch {
+            print(error)
+        }
+    }
+    
+    func fetchNewReleases() {
+        let authToken = sptAuthUtils?.readAuthToken()
+        do {
+            let requestFactory = PerformSPRequest()
+            let newReleasesRequest : URLRequest = try SPTBrowse.createRequestForNewReleases(
+                inCountry: "US",
+                limit: 10,
+                offset: 0,
+                accessToken: authToken?.accessToken
+            )
+            
+            requestFactory.perform(request: newReleasesRequest, completion: { (error, response, data) in
+                // Success
+                let newReleases: SPTListPage = try SPTBrowse.newReleases(from: data, with: response)
+                
+                for item in newReleases.items as! [SPTPartialAlbum] {
+                    print(item.name)
+                }
+
+//                completion(results)
+                
+            }, onError: { error in
+                // Failure
+                print("Error: \(error)")
             })
         } catch {
             print(error)

@@ -20,6 +20,8 @@ class HomePageViewModel {
             }
         }
         
+        // ??? move to it's own func
+        homePageModel.fetchNewReleases()
     }
 }
 
