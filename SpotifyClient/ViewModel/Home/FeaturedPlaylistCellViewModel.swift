@@ -9,6 +9,7 @@
 import Foundation
 
 struct FeaturedPlaylistCellViewModel {
+    var uri: URL
     var name: String?
     var imageURL: URL?
 }

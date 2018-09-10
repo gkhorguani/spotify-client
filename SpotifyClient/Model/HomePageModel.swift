@@ -33,10 +33,10 @@ class HomePageModel {
                 
                 results = playlistItems?.map({ playlist in
                     if let playlistFirstImage = playlist.images.first as? SPTImage {
-                        return FeaturedPlaylistItem(name: playlist.name, imageUrl: playlistFirstImage.imageURL)
+                        return FeaturedPlaylistItem(uri: playlist.uri, name: playlist.name, imageUrl: playlistFirstImage.imageURL)
                     }
                     
-                    return FeaturedPlaylistItem(name: playlist.name, imageUrl: nil)
+                    return FeaturedPlaylistItem(uri: playlist.uri, name: playlist.name, imageUrl: nil)
                 })
                 
                 completion(results)
@@ -53,6 +53,7 @@ class HomePageModel {
 }
 
 struct FeaturedPlaylistItem {
+    var uri: URL
     var name: String
     var imageUrl: URL?
 }

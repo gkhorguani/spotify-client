@@ -69,7 +69,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = homeView.featuredPlaylistsCollectionView.dequeueReusableCell(withReuseIdentifier: cellid, for: indexPath) as! FeaturedPlaylistsCell
         let featuredPlaylist = homePageVM?.featuredPlaylsits[indexPath.row]
-        cell.cellVM = FeaturedPlaylistCellViewModel(name: featuredPlaylist?.name, imageURL: featuredPlaylist?.imageUrl)
+        cell.cellVM = FeaturedPlaylistCellViewModel(uri: (featuredPlaylist?.uri)!, name: featuredPlaylist?.name, imageURL: featuredPlaylist?.imageUrl)
         
         return cell
     }

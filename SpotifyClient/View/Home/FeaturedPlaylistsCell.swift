@@ -21,6 +21,7 @@ class FeaturedPlaylistsCell: UICollectionViewCell {
     var playlistNameLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
+        label.font = UIFont(name: "Helvetica", size: 16.0)
         
         return label
     }()
