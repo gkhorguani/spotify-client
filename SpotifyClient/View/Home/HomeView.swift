@@ -46,6 +46,12 @@ class HomeView: UIView {
         
         return label
     }()
+    
+    lazy var latestReleasesTableView: UITableView = {
+        let tv = UITableView(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: 0))
+        
+        return tv
+    }()
 
     lazy var scrollViewBottomAnchor: UILabel = {
         let label = UILabel()
@@ -100,15 +106,23 @@ class HomeView: UIView {
 
         scrollView.addSubview(latestArtistsLabel)
         latestArtistsLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(featuredPlaylistsCollectionView.snp.bottom).inset(-100)
+            make.top.equalTo(featuredPlaylistsCollectionView.snp.bottom)
             make.leading.trailing.equalTo(scrollView)
+        }
+        
+        scrollView.addSubview(latestReleasesTableView)
+        scrollView.addSubview(scrollViewBottomAnchor)
+        
+        latestReleasesTableView.snp.makeConstraints { (make) in
+            make.top.equalTo(latestArtistsLabel.snp.bottom)
+            make.bottom.equalTo(scrollViewBottomAnchor.snp.top)
+            make.leading.trailing.equalTo(self)
         }
         
         // SOMETHING SHOULD BE LINKED TO THE BOTTOM OF THE SCROLLVIEW
         // This should always be linked to bottom of the scrolleview and top to the last element
-        scrollView.addSubview(scrollViewBottomAnchor)
         scrollViewBottomAnchor.snp.makeConstraints { (make) in
-            make.top.equalTo(latestArtistsLabel.snp.bottom).inset(-1000)
+            make.top.equalTo(latestArtistsLabel.snp.bottom).inset(-500)
             make.bottom.equalTo(scrollView)
         }
     }

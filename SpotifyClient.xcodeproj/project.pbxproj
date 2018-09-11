@@ -35,6 +35,7 @@
 		C7578EE1213B8F9200A754F9 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7578EE0213B8F9200A754F9 /* HomeView.swift */; };
 		C7578EE4213CA05E00A754F9 /* FeaturedPlaylistCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7578EE3213CA05E00A754F9 /* FeaturedPlaylistCellViewModel.swift */; };
 		C7578EE6213CA2D100A754F9 /* UIImageHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7578EE5213CA2D100A754F9 /* UIImageHelpers.swift */; };
+		C76ED3AF2147882000CA7DEB /* LatestReleaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76ED3AE2147882000CA7DEB /* LatestReleaseCell.swift */; };
 		C76F8F0F210D5A1C002B4756 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76F8F0E210D5A1C002B4756 /* AppDelegate.swift */; };
 		C76F8F14210D5A1C002B4756 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C76F8F12210D5A1C002B4756 /* Main.storyboard */; };
 		C76F8F16210D5A1D002B4756 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C76F8F15210D5A1D002B4756 /* Assets.xcassets */; };
@@ -86,6 +87,7 @@
 		C7578EE0213B8F9200A754F9 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		C7578EE3213CA05E00A754F9 /* FeaturedPlaylistCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedPlaylistCellViewModel.swift; sourceTree = "<group>"; };
 		C7578EE5213CA2D100A754F9 /* UIImageHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageHelpers.swift; sourceTree = "<group>"; };
+		C76ED3AE2147882000CA7DEB /* LatestReleaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestReleaseCell.swift; sourceTree = "<group>"; };
 		C76F8F0B210D5A1C002B4756 /* SpotifyClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpotifyClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C76F8F0E210D5A1C002B4756 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C76F8F13210D5A1C002B4756 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				C73CDA20210D5FD400B6A3F7 /* HomeViewController.swift */,
 				C72ACD242133890D00387279 /* FeaturedPlaylistsCell.swift */,
 				C7578EE0213B8F9200A754F9 /* HomeView.swift */,
+				C76ED3AE2147882000CA7DEB /* LatestReleaseCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -474,6 +477,7 @@
 			files = (
 				C73CDA29210D625C00B6A3F7 /* PlaylistsCoordinator.swift in Sources */,
 				C73C1336211939B6003D6B29 /* PlaybackViewController.swift in Sources */,
+				C76ED3AF2147882000CA7DEB /* LatestReleaseCell.swift in Sources */,
 				C71D1DB0211FE5D0006DF250 /* HomePageViewModel.swift in Sources */,
 				C73CDA37210E29F400B6A3F7 /* MenuRouteDelegate.swift in Sources */,
 				C7578EE6213CA2D100A754F9 /* UIImageHelpers.swift in Sources */,

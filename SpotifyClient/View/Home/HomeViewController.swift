@@ -22,6 +22,7 @@ class HomeViewController: UIViewController, LayoutProvider, SideMenuable {
     }
     
     private let cellid = "cellid"
+    private let releaseCellId = "releasecellid"
     
     override func loadView() {
         view = HomeView(frame: UIScreen.main.bounds)
@@ -41,6 +42,10 @@ class HomeViewController: UIViewController, LayoutProvider, SideMenuable {
         homeView.featuredPlaylistsCollectionView.dataSource = self
         homeView.featuredPlaylistsCollectionView.delegate = self
         homeView.featuredPlaylistsCollectionView.register(FeaturedPlaylistsCell.self, forCellWithReuseIdentifier: cellid)
+        
+        homeView.latestReleasesTableView.dataSource = self
+        homeView.latestReleasesTableView.delegate = self
+        homeView.latestReleasesTableView.register(LatestReleaseCell.self, forCellReuseIdentifier: releaseCellId)
 
         homePageVM?.getFeaturedPlaylists()
     }
@@ -83,6 +88,20 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsetsMake(10, 20, 10, 20)
     }
+    
+}
+
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = homeView.latestReleasesTableView.dequeueReusableCell(withIdentifier: releaseCellId) as! LatestReleaseCell
+        
+        return cell
+    }
+    
     
 }
 
