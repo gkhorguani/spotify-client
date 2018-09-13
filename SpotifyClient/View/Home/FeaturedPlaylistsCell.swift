@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class FeaturedPlaylistsCell: UICollectionViewCell {
     var cellVM: FeaturedPlaylistCellViewModel?
@@ -41,8 +42,8 @@ class FeaturedPlaylistsCell: UICollectionViewCell {
         
     }
     
-    func setupBindings() {
-        imageView.imageFromURL(urlString: cellVM?.imageURL?.absoluteString ?? "")
+    func setupBindings() {        
+        imageView.sd_setImage(with: cellVM?.imageURL, completed: nil)
         playlistNameLabel.text = cellVM?.name
     }
     
