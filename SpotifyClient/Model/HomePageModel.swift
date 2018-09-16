@@ -51,13 +51,13 @@ class HomePageModel {
         }
     }
     
-    func fetchNewReleases() {
+    func fetchNewReleases(limit: Int, completion: @escaping ([NewReleaseItem]) -> Void) {
         let authToken = sptAuthUtils?.readAuthToken()
         do {
             let requestFactory = PerformSPRequest()
             let newReleasesRequest : URLRequest = try SPTBrowse.createRequestForNewReleases(
                 inCountry: "US",
-                limit: 10,
+                limit: limit,
                 offset: 0,
                 accessToken: authToken?.accessToken
             )
@@ -65,12 +65,15 @@ class HomePageModel {
             requestFactory.perform(request: newReleasesRequest, completion: { (error, response, data) in
                 // Success
                 let newReleases: SPTListPage = try SPTBrowse.newReleases(from: data, with: response)
+                let newReleaseItems = newReleases.items as? [SPTPartialAlbum]
+                var adaptedNewReleases: [NewReleaseItem]? = []
                 
-                for item in newReleases.items as! [SPTPartialAlbum] {
-                    print(item.name)
-                }
-
-//                completion(results)
+                adaptedNewReleases = newReleaseItems?.map({ item in
+                    
+                    return NewReleaseItem(name: item.name, imageUrl: item.smallestCover.imageURL)
+                })
+                
+                completion(adaptedNewReleases ?? [])
                 
             }, onError: { error in
                 // Failure
@@ -85,6 +88,11 @@ class HomePageModel {
 
 struct FeaturedPlaylistItem {
     var uri: URL
+    var name: String
+    var imageUrl: URL?
+}
+
+struct NewReleaseItem {
     var name: String
     var imageUrl: URL?
 }
