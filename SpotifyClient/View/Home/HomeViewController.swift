@@ -46,8 +46,10 @@ class HomeViewController: UIViewController, LayoutProvider, SideMenuable {
         homeView.latestReleasesTableView.dataSource = self
         homeView.latestReleasesTableView.delegate = self
         homeView.latestReleasesTableView.register(LatestReleaseCell.self, forCellReuseIdentifier: releaseCellId)
-
+        homeView.latestReleasesTableView.rowHeight = UITableViewAutomaticDimension
+        
         homePageVM?.getFeaturedPlaylists()
+        homePageVM?.getNewReleases()
     }
     
     func setupUI() {
@@ -93,11 +95,18 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return homePageVM?.newReleases.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = homeView.latestReleasesTableView.dequeueReusableCell(withIdentifier: releaseCellId) as! LatestReleaseCell
+        let releaseItem = homePageVM?.newReleases[indexPath.row]
+        cell.selectionStyle = .none
+        cell.cellVM = LatestReleaseCellViewModel(name: releaseItem?.name, imageURL: releaseItem?.imageUrl)
         
         return cell
     }
@@ -110,4 +119,7 @@ extension HomeViewController: HomePageViewModelDelegate {
         homeView.featuredPlaylistsCollectionView.reloadData()
     }
     
+    func newReleasesFetched() {
+        homeView.latestReleasesTableView.reloadData()
+    }
 }
